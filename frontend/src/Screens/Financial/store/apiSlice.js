@@ -30,7 +30,7 @@ export const apiSlice = createApi({
       invalidatesTags: ["transaction"],
     }),
 
-    // delete record
+
     deleteTransaction: builder.mutation({
       query: (recordId) => ({
         // delete: 'http://localhost:8080/api/transaction'
