@@ -4,29 +4,24 @@ const bodyParser = require("body-parser");
 
 const app = express();
 require("dotenv").config({ path: "./.env" });
-const dbconfig = require("./db");
 
+const con = require("./db.js");
 
-
-const dbconfig = require('./db');
-
-const usersRoutes = require("./Routes/usersRoute")
-const leavesRoutes = require("./Routes/leavesRoutes")
-
+const leavesRoutes = require("./Routes/leavesRoutes");
 
 const usersRoutes = require("./Routes/usersRoute");
 
 app.use(cors()); // Add this line to enable CORS
 app.use(express.json());
 
-app.use("/api/users", usersRoutes);
+// app.use("/api/users", usersRoutes);
 
 app.use(require("./Routes/financialRoute.js"));
 
-app.use("/api/leaves",leavesRoutes);
+app.use("/api/leaves", leavesRoutes);
 //app.use("/api/leaves" , leavesRoutes);
 
-const port =process.env.PORT || 5000;
+const port = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(bodyParser.json());
